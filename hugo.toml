@@ -1,7 +1,6 @@
 baseURL = "https://2wey.com/"
 languageCode = "en-us"
 title = "Kim Wey"
-theme = ""
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
