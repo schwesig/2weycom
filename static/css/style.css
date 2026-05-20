@@ -5,19 +5,18 @@
 }
 
 :root {
-  --bg: #f8f6f2;
-  --text: #1a1a1a;
-  --muted: #6b6b6b;
-  --accent: #2d5be3;
+  --text: #f0ede8;
+  --muted: #aaa;
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
 html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
-  background: var(--bg);
+  background: linear-gradient(160deg, #202020, #7b3939);
   color: var(--text);
   font-family: var(--font-sans);
   display: flex;
@@ -27,7 +26,18 @@ body {
   padding: 2rem;
 }
 
+#space {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 main {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 480px;
 }
@@ -57,12 +67,4 @@ main {
 
 .quote.fade-out {
   opacity: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f0f0f;
-    --text: #f0ede8;
-    --muted: #888;
-  }
 }

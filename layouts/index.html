@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
+  <canvas id="space"></canvas>
   <main>
     <div class="card">
       <h1 class="name">{{ .Site.Params.name }}</h1>
@@ -16,6 +17,52 @@
   </main>
 
   <script>
+    // Stars animation
+    (function() {
+      var canvas = document.getElementById('space');
+      var ctx = canvas.getContext('2d');
+      var stars = [];
+      var numStars = 400;
+      var fps = 60;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function initStars() {
+        stars = [];
+        for (var i = 0; i < numStars; i++) {
+          stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 1.2 + 0.2,
+            alpha: Math.random(),
+            delta: (Math.random() * 0.008 + 0.002) * (Math.random() < 0.5 ? 1 : -1)
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(function(s) {
+          s.alpha += s.delta;
+          if (s.alpha <= 0 || s.alpha >= 1) s.delta = -s.delta;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,' + s.alpha + ')';
+          ctx.fill();
+        });
+        setTimeout(function() { requestAnimationFrame(draw); }, 1000 / fps);
+      }
+
+      resize();
+      initStars();
+      draw();
+      window.addEventListener('resize', function() { resize(); initStars(); });
+    })();
+
+    // Quote rotation
     const quotes = [
       {{ range .Site.Params.quotes }}"{{ . }}",{{ end }}
     ];
