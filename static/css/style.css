@@ -58,18 +58,42 @@ main {
   text-shadow: 0 0 40px rgba(160, 180, 255, 0.3);
 }
 
-.quote {
+.quote-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow: hidden;
+}
+
+.quote-line {
+  display: block;
   font-size: clamp(0.9rem, 2vw, 1.05rem);
   color: var(--muted);
   font-weight: 300;
   line-height: 1.7;
-  max-width: 38ch;
   letter-spacing: 0.04em;
-  border-left: 1px solid rgba(160, 180, 255, 0.25);
-  padding-left: 1rem;
-  transition: opacity 0.4s ease;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.quote.fade-out {
+.quote-line.from-right {
+  transform: translateX(60px);
+}
+
+.quote-line.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.quote-line.exit-left {
   opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.quote-line.exit-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
