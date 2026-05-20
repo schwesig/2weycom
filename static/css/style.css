@@ -5,8 +5,8 @@
 }
 
 :root {
-  --text: #f0ede8;
-  --muted: #aaa;
+  --text: #e8eaf6;
+  --muted: #9fa8c7;
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(160deg, #202020, #7b3939);
+  background: linear-gradient(170deg, #0a0e1a 0%, #0d1b3e 50%, #000000 100%);
   color: var(--text);
   font-family: var(--font-sans);
   display: flex;
@@ -39,29 +39,34 @@ main {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .name {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
   line-height: 1.1;
   color: var(--text);
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(160, 180, 255, 0.3);
 }
 
 .quote {
-  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
   color: var(--muted);
-  font-weight: 400;
-  line-height: 1.55;
-  max-width: 36ch;
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 38ch;
+  letter-spacing: 0.04em;
+  border-left: 1px solid rgba(160, 180, 255, 0.25);
+  padding-left: 1rem;
   transition: opacity 0.4s ease;
 }
 
