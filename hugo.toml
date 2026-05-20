@@ -1,0 +1,17 @@
+baseURL = "https://2wey.com/"
+languageCode = "en-us"
+title = "Kim Wey"
+theme = ""
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  name = "Kim Wey"
+  fullName = "Joachim \"Kim\" Weyl"
+  quotes = [
+    "Good ideas rarely travel one way.",
+    "Communication works both ways.",
+    "Two directions. One journey.",
+    "Most people talk. Few people connect.",
+    "Good products solve problems. Great products start conversations."
+  ]

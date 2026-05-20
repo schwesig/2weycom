@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ .Site.Params.name }} — {{ index .Site.Params.quotes 0 }}" />
+  <title>{{ .Site.Params.name }}</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1 class="name">{{ .Site.Params.name }}</h1>
+      <p class="quote" id="quote" aria-live="polite">{{ index .Site.Params.quotes 0 }}</p>
+    </div>
+  </main>
+
+  <script>
+    const quotes = [
+      {{ range .Site.Params.quotes }}"{{ . }}",{{ end }}
+    ];
+    let current = 0;
+    const el = document.getElementById("quote");
+
+    function nextQuote() {
+      el.classList.add("fade-out");
+      setTimeout(() => {
+        current = (current + 1) % quotes.length;
+        el.textContent = quotes[current];
+        el.classList.remove("fade-out");
+      }, 400);
+    }
+
+    setInterval(nextQuote, 5000);
+  </script>
+</body>
+</html>
