@@ -91,9 +91,17 @@
     const wrap = document.getElementById('quote-wrap');
 
     function splitQuote(q) {
+      // Split at '. ' if present
       const dotIdx = q.indexOf('. ');
       if (dotIdx !== -1) return [q.slice(0, dotIdx + 1), q.slice(dotIdx + 1).trim()];
-      return [q];
+      // Otherwise split at word boundary closest to middle
+      const mid = Math.floor(q.length / 2);
+      let splitAt = mid;
+      for (let i = 0; i <= mid; i++) {
+        if (q[mid + i] === ' ') { splitAt = mid + i; break; }
+        if (q[mid - i] === ' ') { splitAt = mid - i; break; }
+      }
+      return [q.slice(0, splitAt).trim(), q.slice(splitAt).trim()];
     }
 
     function showQuote(q) {
