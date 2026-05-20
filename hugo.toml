@@ -1,11 +1,11 @@
 baseURL = "https://2wey.com/"
 languageCode = "en-us"
-title = "Kim Wey"
+title = "Kim Weyl"
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
 [params]
-  name = "Kim Wey"
+  name = "Kim Weyl"
   fullName = "Joachim \"Kim\" Weyl"
   quotes = [
     "Good ideas rarely travel one way.",
